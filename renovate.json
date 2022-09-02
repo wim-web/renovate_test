@@ -25,9 +25,6 @@
         {
             "matchPackageNames": [
                 "aquaproj/aqua-registry"
-            ],
-            "schedule": [
-                "after 9pm on sunday"
             ]
         }
     ]
