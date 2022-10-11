@@ -13,11 +13,21 @@
     ],
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
-    "packageRules": [],
+    "packageRules": [
+        {
+            "matchDepTypes": [
+                "module"
+            ],
+            "enabled": true
+        }
+    ],
     "regexManagers": [],
     "terraform": {
         "fileMatch": [
             "\\.hcl$"
+        ],
+        "registryUrls": [
+            "https://docker.mycompany.domain"
         ]
     }
 }
