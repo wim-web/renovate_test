@@ -15,19 +15,33 @@
     "prConcurrentLimit": 0,
     "packageRules": [
         {
+            "matchManagers": [
+                "terraform"
+            ],
             "matchDepTypes": [
                 "module"
             ],
-            "enabled": true
+            "matchDatasources": [
+                "terraform-module"
+            ],
+            "enabled": false
         }
     ],
-    "regexManagers": [],
+    "regexManagers": [
+        {
+            "fileMatch": [
+                ".tf$"
+            ],
+            "matchStrings": [
+                "source\\s*=\\s*\"app.terraform.io/torana/(?<name>.*)/(?<provider>.*)//.*\"\\nversion\\s*=\\s*\"(?<currentVersion>.*)\""
+            ],
+            "depNameTemplate": "torana-us/terraform-${provider}-${name}",
+            "datasourceTemplate": "github-tags"
+        }
+    ],
     "terraform": {
         "fileMatch": [
             "\\.hcl$"
-        ],
-        "registryUrls": [
-            "https://docker.mycompany.domain"
         ]
     }
 }
