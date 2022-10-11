@@ -1,8 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:base",
-        "github>aquaproj/aqua-renovate-config#1.2.5"
+        "config:base"
     ],
     "timezone": "Asia/Tokyo",
     "semanticCommits": "enabled",
@@ -14,18 +13,11 @@
     ],
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
-    "packageRules": [
-        {
-            "matchUpdateTypes": [
-                "patch"
-            ],
-            "automerge": true,
-            "automergeStrategy": "squash"
-        },
-        {
-            "matchPackageNames": [
-                "aquaproj/aqua-registry"
-            ]
-        }
-    ]
+    "packageRules": [],
+    "regexManagers": [],
+    "terraform": {
+        "fileMatch": [
+            "\\.hcl$"
+        ]
+    }
 }
