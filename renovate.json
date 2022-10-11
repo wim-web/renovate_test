@@ -33,9 +33,9 @@
                 ".tf$"
             ],
             "matchStrings": [
-                "version\\s*=\\s*\"(?<currentValue>.*)\""
+                "source\\s*=\\s*\"app.terraform.io/torana/(?<name>.*)/(?<provider>.*)//.*\"\\sversion\\s*=\\s*\"(?<currentValue>.*)\""
             ],
-            "depNameTemplate": "torana-us/terraform-datadog-monitor-${{currentValue}}",
+            "depNameTemplate": "torana-us/terraform-{{provider}}-{{name}}",
             "datasourceTemplate": "github-tags"
         }
     ],
