@@ -33,7 +33,8 @@
                 ".tf$"
             ],
             "matchStrings": [
-                "source\\s*=\\s*\"app.terraform.io/torana/(?<name>.*)/(?<provider>.*)//.*\"\\sversion\\s*=\\s*\"(?<currentValue>.*)\""
+                "source\\s*=\\s*\"app\\.terraform\\.io/torana/(?<name>.*)/(?<provider>.*)//.*\"\\sversion\\s*=\\s*\"(?<currentValue>.*)\"",
+                "source\\s*=\\s*\"app\\.terraform\\.io/torana/(?<name>.*)/(?<provider>.*)//.*\""
             ],
             "depNameTemplate": "torana-us/terraform-{{provider}}-{{name}}",
             "datasourceTemplate": "github-tags"
