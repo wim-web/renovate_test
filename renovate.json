@@ -35,7 +35,7 @@
             "matchStrings": [
                 "version\\s*=\\s*\"(?<currentValue>.*)\""
             ],
-            "depNameTemplate": "torana-us/terraform-datadog-monitor",
+            "depNameTemplate": "torana-us/terraform-datadog-monitor-${currentValue}",
             "datasourceTemplate": "github-tags"
         }
     ],
