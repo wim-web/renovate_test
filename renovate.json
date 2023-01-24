@@ -30,31 +30,6 @@
     "regexManagers": [
         {
             "fileMatch": [
-                "\\.hcl$"
-            ],
-            "matchStrings": [
-                "terraform\\s*{\\s*required_version\\s*=\\s*\"(?P<currentValue>.*)\""
-            ],
-            "datasourceTemplate": "github-releases",
-            "depNameTemplate": "hashicorp/terraform",
-            "depTypeTemplate": "required_version",
-            "extractVersionTemplate": "^v(?<version>.*)$"
-        },
-        {
-            "fileMatch": [
-                "\\.hcl$"
-            ],
-            "matchStrings": [
-                "source\\s*=\\s*\"(?P<owner>[^\/]*)\/(?<name>.*)\"\\s*version\\s*=\\s*\"(?P<currentValue>.*)\"",
-                "version\\s*=\\s*\"(?P<currentValue>.*)\"\\s*source\\s*=\\s*\"(?P<owner>[^\/]*)\/(?<name>.*)\""
-            ],
-            "datasourceTemplate": "github-releases",
-            "depNameTemplate": "{{owner}}/terraform-provider-{{name}}",
-            "depTypeTemplate": "required_provider",
-            "extractVersionTemplate": "^v(?<version>.*)$"
-        },
-        {
-            "fileMatch": [
                 "^\\.tflint\\.hcl$"
             ],
             "matchStrings": [
