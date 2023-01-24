@@ -63,16 +63,6 @@
             ],
             "datasourceTemplate": "github-releases",
             "extractVersionTemplate": "^v(?<version>.*)$"
-        },
-        {
-            "fileMatch": [
-                "^aws\\.hcl$"
-            ],
-            "matchStrings": [
-                "(?P<currentValue>.*)"
-            ],
-            "datasourceTemplate": "github-releases",
-            "extractVersionTemplate": "^v(?<version>.*)$"
         }
     ]
 }
