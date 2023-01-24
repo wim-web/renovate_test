@@ -38,6 +38,18 @@
             ],
             "datasourceTemplate": "github-releases",
             "extractVersionTemplate": "^v(?<version>.*)$"
+        },
+        {
+            "fileMatch": [
+                "\\.hcl$"
+            ],
+            "matchStrings": [
+                "terraform\\s*{\\s*required_version\\s*=\\s*\"(?P<currentValue>.*)\""
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "hashicorp/terraform",
+            "depTypeTemplate": "required_version",
+            "extractVersionTemplate": "^v(?<version>.*)$"
         }
     ]
 }
