@@ -66,10 +66,10 @@
         },
         {
             "fileMatch": [
-                "^\\.tflint\\.hcl$"
+                "^\\.hcl$"
             ],
             "matchStrings": [
-                "(?<=terraform)(?P<currentValue>.*)"
+                "(?<=terraform)(?P=<currentValue>.*)"
             ],
             "datasourceTemplate": "github-releases",
             "extractVersionTemplate": "^v(?<version>.*)$"
