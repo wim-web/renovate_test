@@ -33,11 +33,22 @@
                 "^\\.tflint\\.hcl$"
             ],
             "matchStrings": [
-                "version\\s*=\\s*\"(?P<currentValue>[^\"]*)([^}])*?source\\s*=\\s*\"github.com/(?<depName>.*)\"",
-                "source\\s*=\\s*\"github.com/(?<depName>.*)\"([^}])*?version\\s*=\\s*\"(?P<currentValue>[^\"]*)"
+                "version\\s*=\\s*\"(?<currentValue>[^\"]*)([^}])*?source\\s*=\\s*\"github.com/(?<depName>.*)\"",
+                "source\\s*=\\s*\"github.com/(?<depName>.*)\"([^}])*?version\\s*=\\s*\"(?<currentValue>[^\"]*)"
             ],
             "datasourceTemplate": "github-releases",
             "extractVersionTemplate": "^v(?<version>.*)$"
+        },
+        {
+            "fileMatch": [
+                ".tf$"
+            ],
+            "matchStrings": [
+                "source\\s*=\\s*\"app\\.terraform\\.io\\/torana\\/(?<name>.*?)\\/(?<provider>.*?)(\\/\\/.*)?\"[^}]*?version\\s*=\\s*\"(?<currentValue>.*)\"",
+                "version\\s*=\\s*\"(?<currentValue>.*)\"[^}]*?source\\s*=\\s*\"app\\.terraform\\.io\\/torana\\/(?<name>.*?)\\/(?<provider>.*?)(\\/\\/.*)?\""
+            ],
+            "depNameTemplate": "torana-us/terraform-{{provider}}-{{name}}",
+            "datasourceTemplate": "github-tags"
         },
         {
             "fileMatch": [
@@ -49,6 +60,19 @@
             "datasourceTemplate": "github-releases",
             "depNameTemplate": "hashicorp/terraform",
             "depTypeTemplate": "required_version",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+        },
+        {
+            "fileMatch": [
+                "\\.hcl$"
+            ],
+            "matchStrings": [
+                "source\\s*=\\s*\"(?<owner>[^\/]*)\/(?<name>.*)\"\\s*version\\s*=\\s*\"(?<currentValue>.*)\"",
+                "version\\s*=\\s*\"(?<currentValue>.*)\"\\s*source\\s*=\\s*\"(?<owner>[^\/]*)\/(?<name>.*)\""
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "{{owner}}/terraform-provider-{{name}}",
+            "depTypeTemplate": "required_provider",
             "extractVersionTemplate": "^v(?<version>.*)$"
         }
     ]
