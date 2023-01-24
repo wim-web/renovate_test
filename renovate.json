@@ -30,19 +30,49 @@
     "regexManagers": [
         {
             "fileMatch": [
-                ".tf$"
+                "\\.hcl$"
             ],
             "matchStrings": [
-                "source\\s*=\\s*\"app\\.terraform\\.io\\/torana\\/(?<name>.*?)\\/(?<provider>.*?)(\\/\\/.*)?\"[^}]*?version\\s*=\\s*\"(?<currentValue>.*)\"",
-                "version\\s*=\\s*\"(?<currentValue>.*)\"[^}]*?source\\s*=\\s*\"app\\.terraform\\.io\\/torana\\/(?<name>.*?)\\/(?<provider>.*?)(\\/\\/.*)?\""
+                "terraform\\s*{\\s*required_version\\s*=\\s*\"(?P<currentValue>.*)\""
             ],
-            "depNameTemplate": "torana-us/terraform-{{provider}}-{{name}}",
-            "datasourceTemplate": "github-tags"
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "hashicorp/terraform",
+            "depTypeTemplate": "required_version",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+        },
+        {
+            "fileMatch": [
+                "\\.hcl$"
+            ],
+            "matchStrings": [
+                "source\\s*=\\s*\"(?P<owner>[^\/]*)\/(?<name>.*)\"\\s*version\\s*=\\s*\"(?P<currentValue>.*)\"",
+                "version\\s*=\\s*\"(?P<currentValue>.*)\"\\s*source\\s*=\\s*\"(?P<owner>[^\/]*)\/(?<name>.*)\""
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "{{owner}}/terraform-provider-{{name}}",
+            "depTypeTemplate": "required_provider",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+        },
+        {
+            "fileMatch": [
+                "^\\.tflint\\.hcl$"
+            ],
+            "matchStrings": [
+                "version\\s*=\\s*\"(?<currentValue>[^\"]*)([^}])*?source\\s*=\\s*\"github.com/(?<depName>.*)\"",
+                "source\\s*=\\s*\"github.com/(?<depName>.*)\"([^}])*?version\\s*=\\s*\"(?<currentValue>[^\"]*)"
+            ],
+            "datasourceTemplate": "github-releases",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+        },
+        {
+            "fileMatch": [
+                "^\\.tflint\\.hcl$"
+            ],
+            "matchStrings": [
+                "(?<=terraform)(?P<currentValue>.*)"
+            ],
+            "datasourceTemplate": "github-releases",
+            "extractVersionTemplate": "^v(?<version>.*)$"
         }
-    ],
-    "terraform": {
-        "fileMatch": [
-            "\\.hcl$"
-        ]
-    }
+    ]
 }
