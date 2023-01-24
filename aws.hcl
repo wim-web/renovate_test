@@ -8,7 +8,7 @@ generate "terraform" {
   if_exists = "overwrite_terragrunt"
   contents  = <<-EOF
   terraform {
-    required_version = "1.3.6"
+    required_version = "1.3.7"
     required_providers {
       aws = {
         source  = "hashicorp/aws"
