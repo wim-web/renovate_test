@@ -1,0 +1,55 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base"
+    ],
+    "timezone": "Asia/Tokyo",
+    "semanticCommits": "enabled",
+    "labels": [
+        "dependencies"
+    ],
+    "schedule": [
+        "* 9-17 * * mon-fri"
+    ],
+    "prHourlyLimit": 0,
+    "prConcurrentLimit": 0,
+    "packageRules": [
+        {
+            "matchManagers": [
+                "terraform"
+            ],
+            "matchDepTypes": [
+                "module"
+            ],
+            "matchDatasources": [
+                "terraform-module"
+            ],
+            "enabled": false
+        }
+    ],
+    "regexManagers": [
+        {
+            "fileMatch": [
+                "^\\.tflint\\.hcl$"
+            ],
+            "matchStrings": [
+                "version\\s*=\\s*\"(?P<currentValue>[^\"]*)([^}])*?source\\s*=\\s*\"github.com/(?<depName>.*)\"",
+                "source\\s*=\\s*\"github.com/(?<depName>.*)\"([^}])*?version\\s*=\\s*\"(?P<currentValue>[^\"]*)"
+            ],
+            "datasourceTemplate": "github-releases",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+        },
+        {
+            "fileMatch": [
+                "\\.hcl$"
+            ],
+            "matchStrings": [
+                "terraform\\s*{\\s*required_version\\s*=\\s*\"(?<currentValue>.*)\""
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "hashicorp/terraform",
+            "depTypeTemplate": "required_version",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+        }
+    ]
+}
