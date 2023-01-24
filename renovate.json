@@ -44,7 +44,7 @@
                 "\\.hcl$"
             ],
             "matchStrings": [
-                "terraform\\s*{\\s*required_version\\s*=\\s*\"(?P<currentValue>.*)\""
+                "terraform\\s*{\\s*required_version\\s*=\\s*\"(?<currentValue>.*)\""
             ],
             "datasourceTemplate": "github-releases",
             "depNameTemplate": "hashicorp/terraform",
