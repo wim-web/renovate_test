@@ -46,12 +46,14 @@
     "regexManagers": [
         {
             "fileMatch": [
-                "^\\.hcl$"
+                "\\.hcl$"
             ],
             "matchStrings": [
-                "(?<=terraform)(?<currentValue>.*)"
+                "(?<vendor>aws|datadog)[^=]*=[^\\{]*\\{([\\s\\n]*(?:(?<source>source)[^=]*=[^\"]*?\"(?<source_name>[^\"]*)\"|(?<version>version)[^=]*=[^\"]*\"(?<version_number>[^\"]*?)\"))+[^\\}]*\\}"
             ],
             "datasourceTemplate": "github-releases",
+            "depNameTemplate": "{{owner}}/terraform-provider-{{name}}",
+            "depTypeTemplate": "required_provider",
             "extractVersionTemplate": "^v(?<version>.*)$"
         }
     ]
