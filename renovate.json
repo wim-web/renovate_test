@@ -49,7 +49,7 @@
                 "\\.hcl$"
             ],
             "matchStrings": [
-                "(?<vendor>aws|datadog)[^=]*=[^\\{]*\\{([\\s\\n]*(?:(?<source>source)[^=]*=[^\"]*?\"(?<source_name>[^\"]*)\"|(?<version>version)[^=]*=[^\"]*\"(?<version_number>[^\"]*?)\"))+[^\\}]*\\}"
+                "(?<vendor>.*?)[^=]*=[^\\{]*\\{([\\s\\n]*(?:(?<source>source)[^=]*=[^\"]*?\"(?<owner>[^/]*)/(?<name>[^\"]*)\"|(?<version>version)[^=]*=[^\"]*\"(?<currentValue>[^\"]*?)\"))+[^\\}]*\\}"
             ],
             "datasourceTemplate": "github-releases",
             "depNameTemplate": "{{owner}}/terraform-provider-{{name}}",
