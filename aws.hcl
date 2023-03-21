@@ -15,7 +15,7 @@ generate "terraform" {
         version = "4.48.0"
       }
       datadog = {
-        version = "3.19.1"
+        version = "3.23.0"
         source  = "Datadog/datadog"
       }
     }
