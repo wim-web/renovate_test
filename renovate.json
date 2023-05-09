@@ -1,60 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:base",
-        "github>aquaproj/aqua-renovate-config#1.5.1"
-    ],
-    "timezone": "Asia/Tokyo",
-    "semanticCommits": "enabled",
-    "labels": [
-        "dependencies"
-    ],
-    "schedule": [
-        "* 9-17 * * mon-fri"
-    ],
-    "prHourlyLimit": 0,
-    "prConcurrentLimit": 0,
-    "packageRules": [
-        {
-            "matchUpdateTypes": [
-                "patch"
-            ],
-            "automerge": true,
-            "automergeStrategy": "squash"
-        },
-        {
-            "matchPackageNames": [
-                "aquaproj/aqua-registry"
-            ],
-            "schedule": [
-                "* 9-12 * * mon"
-            ]
-        },
-        {
-            "matchManagers": [
-                "terraform"
-            ],
-            "matchDepTypes": [
-                "module"
-            ],
-            "matchDatasources": [
-                "terraform-module"
-            ],
-            "enabled": false
-        }
-    ],
-    "regexManagers": [
-        {
-            "fileMatch": [
-                "\\.hcl$"
-            ],
-            "matchStrings": [
-                "(?<vendor>.*?)[^=]*=[^\\{]*\\{([\\s\\n]*(?:(?<source>source)[^=]*=[^\"]*?\"(?<owner>[^/]*)/(?<name>[^\"]*)\"|(?<version>version)[^=]*=[^\"]*\"(?<currentValue>[^\"]*?)\"))+[^\\}]*\\}"
-            ],
-            "datasourceTemplate": "github-releases",
-            "depNameTemplate": "{{owner}}/terraform-provider-{{name}}",
-            "depTypeTemplate": "required_provider",
-            "extractVersionTemplate": "^v(?<version>.*)$"
-        }
+        "config:base"
     ]
 }
