@@ -1,0 +1,14 @@
+---
+name: test
+
+on:
+  push:
+    
+jobs:
+  jwt:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -LO https://github.com/mike-engel/jwt-cli/releases/download/5.0.3/jwt-linux.tar.gz && \
+          tar -xzf jwt-linux.tar.gz
+      - run: ./jwt encode --alg RS256 --iss iss --secret fake --exp "+10 min"
