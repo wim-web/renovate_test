@@ -13,7 +13,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sts v1.18.10
 	github.com/ktr0731/go-fuzzyfinder v0.7.0
 	github.com/spf13/cobra v1.7.0
-	golang.org/x/exp v0.0.0-20230425010034-47ecfdc1ba53
+	golang.org/x/exp 944ab1f22d93
 )
 
 require (
