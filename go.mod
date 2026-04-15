@@ -11,7 +11,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.36.3
 	github.com/aws/aws-sdk-go-v2/service/ssoadmin v1.16.9
 	github.com/aws/aws-sdk-go-v2/service/sts v1.18.10
-	github.com/ktr0731/go-fuzzyfinder v0.7.0
+	github.com/ktr0731/go-fuzzyfinder v0.9.0
 	github.com/spf13/cobra v1.7.0
 	golang.org/x/exp v0.0.0-20230425010034-47ecfdc1ba53
 )
