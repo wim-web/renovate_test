@@ -1,7 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:base"
+        "local>wim-web/renovate-config"
     ],
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
@@ -11,6 +11,13 @@
             "matchUpdateTypes": [
                 "patch"
             ]
+        },
+        {
+            "description": "Only update minimist through vulnerability alerts for the security smoke test",
+            "matchPackageNames": [
+                "minimist"
+            ],
+            "enabled": false
         }
     ]
 }
