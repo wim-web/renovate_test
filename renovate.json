@@ -1,7 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "local>wim-web/renovate-config"
+        "local>wim-web/renovate-config#2c121211b5e5db079754faa262e8a45bae2a16ba"
     ],
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
